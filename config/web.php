@@ -39,7 +39,7 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
-    'params' => $params,
+    'params' => $params,        
 ];
 
 if (YII_ENV_DEV) {    
