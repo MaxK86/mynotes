@@ -105,13 +105,5 @@ class SiteController extends Controller {
             return $this->render('entry', ['model' => $model]);
         }
     }
-    
-//    public function actionTest(array $id2, $version = null) {
-//        print_r($id2);
-//        echo "<br>";
-//        
-//        echo $version;
-//        return;
-//    }
-
+        
 }
