@@ -12,13 +12,43 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'parent_id')->textInput() ?>
+    <?= $form->field($model, 'root')->textInput() ?>
+
+    <?= $form->field($model, 'lft')->textInput() ?>
+
+    <?= $form->field($model, 'rgt')->textInput() ?>
+
+    <?= $form->field($model, 'lvl')->textInput() ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created')->textInput() ?>
+    <?= $form->field($model, 'icon_type')->textInput() ?>
+
+    <?= $form->field($model, 'active')->textInput() ?>
+
+    <?= $form->field($model, 'selected')->textInput() ?>
+
+    <?= $form->field($model, 'disabled')->textInput() ?>
+
+    <?= $form->field($model, 'readonly')->textInput() ?>
+
+    <?= $form->field($model, 'visible')->textInput() ?>
+
+    <?= $form->field($model, 'collapsed')->textInput() ?>
+
+    <?= $form->field($model, 'movable_u')->textInput() ?>
+
+    <?= $form->field($model, 'movable_d')->textInput() ?>
+
+    <?= $form->field($model, 'movable_l')->textInput() ?>
+
+    <?= $form->field($model, 'movable_r')->textInput() ?>
+
+    <?= $form->field($model, 'removable')->textInput() ?>
+
+    <?= $form->field($model, 'removable_all')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
