@@ -67,6 +67,16 @@ AppAsset::register($this);
     </footer>
 
 <?php $this->endBody() ?>
+    
+    <script>
+    var w = screen.width,
+
+    h = screen.height;
+
+    alert(w + 'x' + h)
+
+</script>
+
 </body>
 </html>
 <?php $this->endPage() ?>
