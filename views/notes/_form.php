@@ -2,6 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Categories;
+
+use kartik\tree\TreeView;
+use kartik\tree\TreeViewInput;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Notes */
@@ -13,6 +18,20 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+    
+    
+    <?= TreeViewInput::widget([
+        'name' => 'kvTreeInput',
+        'value' => '1,2,3', // preselected values
+        'query' => Categories::find()->addOrderBy('root, lft'),
+        'headingOptions' => ['label' => 'Categories'],
+        'rootOptions' => ['label'=>'<i class="fa fa-tree text-success"></i>'],
+        'fontAwesome' => true,
+        'asDropdown' => true,
+        'multiple' => true,
+        'options' => ['disabled' => false]
+    ]);?>
+    
 
     <?= $form->field($model, 'created')->textInput() ?>
 
