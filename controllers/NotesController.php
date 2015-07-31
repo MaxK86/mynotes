@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\models\CategoriesRefs;
+
 /**
  * NotesController implements the CRUD actions for Notes model.
  */
@@ -61,8 +63,31 @@ class NotesController extends Controller
     public function actionCreate()
     {
         $model = new Notes();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        
+//        
+//        $a= Yii::$app->request->post();
+//        print_r($a);
+//        exit;
+//        
+//        $categoryRefs = new CategoriesRefs();
+//        $categoryRefs->id_category = 1;
+//        
+//        $categoryRefs->load(Yii::$app->request->post());
+//        
+//        exit;
+        
+        
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {            
+                                               
+            $categoryRefs = new CategoriesRefs();
+            $categoryRefs->id_category = Yii::$app->request->post('kvTreeInput');
+            $categoryRefs->id_entity = $model->id;
+            $categoryRefs->type = 'note';
+            $categoryRefs->save();                        
+            
+            
+            exit;
+        
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -80,8 +105,9 @@ class NotesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+                        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
