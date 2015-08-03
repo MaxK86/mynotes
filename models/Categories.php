@@ -10,4 +10,10 @@ class Categories extends \kartik\tree\models\Tree
     {
         return 'categories';
     }    
+    
+    public function getNotes()
+    {
+        return $this->hasMany(Notes::className(), ['id' => 'entity_id'])
+            ->viaTable('categories_refs', ['category_id' => 'id']);
+    }
 }
