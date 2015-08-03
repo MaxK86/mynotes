@@ -15,16 +15,6 @@ use Yii;
 class Notes extends \yii\db\ActiveRecord
 {
     /**
-     * Relations many-to-many for "notes" and "categories"
-     * Relations via a Junction Table http://www.yiiframework.com/doc-2.0/guide-db-active-record.html
-     */
-    public function getCategories()
-    {
-        return $this->hasMany(Categories::className(), ['id' => 'category_id'])
-            ->viaTable('categories_refs', ['entity_id' => 'id']);
-    }
-
-    /**
      * @inheritdoc
      */
     public static function tableName()

@@ -27,7 +27,6 @@ class NotesController extends Controller
             ],
         ];
     }
-     
 
     /**
      * Lists all Notes models.
@@ -61,20 +60,6 @@ class NotesController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    
-//    public function actionTest()
-//    {
-//        echo "<pre>";
-//        
-//        //$notes = Notes::findOne(18);
-//        $notes = Notes::findAll([18,19]);
-//        
-//       //print_r($notes);
-//        
-//        $categories = $notes[1]->categories;        
-//        print_r($categories);
-//    }
-    
     public function actionCreate()
     {
         $model = new Notes();
@@ -101,7 +86,7 @@ class NotesController extends Controller
             $categoryRefs->save();                        
             
             
-            //exit;
+            exit;
         
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
