@@ -22,6 +22,23 @@ class Notes extends \yii\db\ActiveRecord
         return 'notes';
     }
 
+    public function getCategories()
+    {        
+        return $this->hasMany(Categories::className(), ['id' => 'category_id'])
+            ->viaTable('categories_refs', ['entity_id' => 'id']);
+    }
+    
+    public function setTags($tags)
+    {
+        $this->unlinkAll('tags',true);
+        foreach ($tags as $tagAsArray) {
+            $tag = new Tag($tagAsArray);
+            $this->link('tags',$tag);
+        }
+    }
+    
+    #https://github.com/yiisoft/yii2/issues/5372
+    
     /**
      * @inheritdoc
      */
@@ -47,4 +64,11 @@ class Notes extends \yii\db\ActiveRecord
             'id_file' => 'Id File',
         ];
     }
+    
+    
+//    public function ttt()
+//    {
+//        
+//    }
+   
 }

@@ -128,6 +128,36 @@ class NotesController extends Controller
 
         return $this->redirect(['index']);
     }
+    
+    
+    public function actionTest() {
+        
+        
+        //$notes = Notes::findOne(18);
+        
+        
+        //$items = $notes->items;
+        
+        //print_r($notes->categories);
+        
+        
+        
+        //ttt()
+        
+        //$categories = \app\models\Categories::findOne(6);
+        $categories = \app\models\Categories::findOne(6);
+        $notes = new Notes();
+        $notes->body = "100qwerty";
+        
+        //$notes->save();
+        
+        //$notes->unlinkAll('categories',true);
+        $notes->link('categories', $categories);
+//        
+//
+      //  $notes->link('categories', $categories);                
+    }
+        
 
     /**
      * Finds the Notes model based on its primary key value.

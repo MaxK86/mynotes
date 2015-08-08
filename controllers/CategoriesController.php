@@ -40,7 +40,26 @@ class CategoriesController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-            
+    
+    
+//    public function actionTest() { 
+//        $id = 6;
+//        $model = $this->findModel($id);
+//        
+//        print_r($model);
+//        
+//        /*
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('update', [
+//                'model' => $model,
+//            ]);
+//        }
+//         * 
+//         */
+//    }
 
     /**
      * Finds the Categories model based on its primary key value.
