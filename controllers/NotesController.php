@@ -77,15 +77,15 @@ class NotesController extends Controller
 //        exit;
         
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {            
-                                               
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             $categoryRefs = new CategoriesRefs();
-            $categoryRefs->id_category = Yii::$app->request->post('kvTreeInput');
-            $categoryRefs->id_entity = $model->id;
+            $categoryRefs->category_id = Yii::$app->request->post('kvTreeInput');
+            $categoryRefs->entity_id = $model->id;
             $categoryRefs->type = 'note';
             $categoryRefs->save();                        
-            
-            
+
+
             exit;
         
             return $this->redirect(['view', 'id' => $model->id]);

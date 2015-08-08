@@ -27,8 +27,8 @@ class CategoriesRefs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_category', 'id_entity'], 'integer'],
-            [['id_entity', 'type'], 'required'],
+            [['category_id', 'entity_id'], 'integer'],
+            [['entity_id', 'type'], 'required'],
             [['type'], 'string', 'max' => 128]
         ];
     }
